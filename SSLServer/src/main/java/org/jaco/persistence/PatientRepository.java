@@ -32,7 +32,7 @@ public class PatientRepository {
         patient.setChecksumFasta(checksum);
         patient.setFileSizeBytes(fileSize);
 
-        // Guardar en CSV (append)
+        // Guardar en CSV
         try (FileWriter fw = new FileWriter(CSV_FILE, true);
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
