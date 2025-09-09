@@ -1,0 +1,113 @@
+Communication Protocol - Taller Genomas V4
+
+Toda la comunicación entre SSLClient y SSLServer se realiza mediante texto plano sobre un canal SSL.  
+Los mensajes siguen un formato estructurado, con campos clave-valor y delimitadores para datos especiales.
+
+---
+
+General Format
+
+- Cada línea es un campo o marcador.
+- Los campos tienen el formato:
+  KEY: VALUE
+- Los datos FASTA se delimitan con:
+  FASTA_START
+  ... contenido FASTA ...
+  FASTA_END
+- Cada mensaje termina con:
+  END
+
+---
+
+Commands
+
+1. CREATE_PATIENT
+Request:
+COMMAND: CREATE_PATIENT
+ID: <string>
+NAME: <string>
+DOCUMENT: <string>
+AGE: <int>
+SEX: <M|F>
+EMAIL: <string>
+FASTA_START
+>patient<ID>
+<secuencia genética>
+FASTA_END
+END
+
+Response:
+STATUS: OK
+MESSAGE: Paciente <ID> creado correctamente
+END
+
+---
+
+2. GET_PATIENT
+Request:
+COMMAND: GET_PATIENT
+ID: <string>
+END
+
+Response (if found):
+STATUS: OK
+ID: <string>
+NAME: <string>
+DOCUMENT: <string>
+AGE: <int>
+SEX: <M|F>
+EMAIL: <string>
+FASTA_START
+>patient<ID>
+<secuencia genética>
+FASTA_END
+END
+
+Response (if not found):
+STATUS: ERROR
+MESSAGE: Paciente <ID> no encontrado
+END
+
+---
+
+3. UPDATE_PATIENT
+Request:
+COMMAND: UPDATE_PATIENT
+ID: <string>
+NAME: <string>      # opcional
+DOCUMENT: <string>  # opcional
+AGE: <int>          # opcional
+SEX: <M|F>          # opcional
+EMAIL: <string>     # opcional
+FASTA_START         # opcional
+>patient<ID>
+<nueva secuencia genética>
+FASTA_END
+END
+
+Response:
+STATUS: OK
+MESSAGE: Paciente <ID> actualizado correctamente
+END
+
+---
+
+4. DELETE_PATIENT
+Request:
+COMMAND: DELETE_PATIENT
+ID: <string>
+END
+
+Response:
+STATUS: OK
+MESSAGE: Paciente <ID> eliminado (inactivo)
+END
+
+---
+
+Error Responses
+
+Si el servidor recibe un comando inválido o mal formado:
+STATUS: ERROR
+MESSAGE: Comando no reconocido o malformado
+END
