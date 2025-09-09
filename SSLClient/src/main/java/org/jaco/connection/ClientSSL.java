@@ -1,4 +1,4 @@
-package org.jaco;
+package org.jaco.connection;
 
 import org.jaco.MessageBuilder.MessageBuilder;
 
