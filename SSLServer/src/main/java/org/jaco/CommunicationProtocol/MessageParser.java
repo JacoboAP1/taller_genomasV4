@@ -2,11 +2,12 @@ package org.jaco.CommunicationProtocol;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MessageParser {
-    private Map<String, String> fields;
+    private final Map<String, String> fields;
     private String fastaContent;
 
     public MessageParser() {
@@ -28,21 +29,28 @@ public class MessageParser {
             }
             if (line.equals("FASTA_END")) {
                 fastaMode = false;
-                fastaContent = fastaBuilder.toString();
+                fastaContent = fastaBuilder.toString().trim(); // quitamos salto final
                 continue;
             }
 
             if (fastaMode) {
                 fastaBuilder.append(line).append("\n");
-            } else if (line.contains(": ")) {
-                String[] parts = line.split(": ", 2);
-                fields.put(parts[0], parts[1]);
+            } else if (line.contains(":")) {
+                String[] parts = line.split(":", 2);
+                if (parts.length == 2) {
+                    fields.put(parts[0].trim(), parts[1].trim());
+                }
             }
         }
     }
 
+    // Devuelve todos los campos como mapa inmutable
+    public Map<String, String> getFields() {
+        return Collections.unmodifiableMap(fields);
+    }
+
     public String getField(String key) {
-        return fields.get(key);
+        return fields.getOrDefault(key, "");
     }
 
     public String getFASTA() {
@@ -50,6 +58,6 @@ public class MessageParser {
     }
 
     public String getCommand() {
-        return fields.get("COMMAND");
+        return fields.getOrDefault("COMMAND", "");
     }
 }

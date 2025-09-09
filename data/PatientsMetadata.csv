@@ -1,1 +1,4 @@
 patient_id,full_name,document_id,age,sex,contact_email,registration_date,clinical_notes,checksum_fasta,file_size_bytes,active
+P1757395147480,Juan Perez,123456789,35,M,juan.perez@example.com,2025-09-09T00:19:07.536342300,,657c7863774d995768b1aa765c1a00e8a63d3bf708a170825b71ad50a2cadc86,29
+P1757396965962,Juan Perez,123456789,35,M,juan.perez@example.com,2025-09-09T00:49:26.001844100,,657c7863774d995768b1aa765c1a00e8a63d3bf708a170825b71ad50a2cadc86,29
+P1757397480932,Juan Perez,,35,M,juan.perez@example.com,2025-09-09T00:58:01.042539400,,69d3cb14528e88040e25f24b90e11bcb0c83c2742cfed5e240ecd66a43153666,25

@@ -37,6 +37,8 @@ public class ServerSSL {
                         Protocol protocol = new Protocol();
                         protocol.handleRequest(in, out);
 
+                        out.close();
+                        in.close();
                         clientSocket.close();
                     } catch (Exception e) {
                         e.printStackTrace();
