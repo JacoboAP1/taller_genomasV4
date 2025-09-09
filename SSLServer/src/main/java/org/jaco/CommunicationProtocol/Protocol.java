@@ -30,10 +30,9 @@ public class Protocol {
 
     private void handleCreatePatient(MessageParser parser, PrintWriter out) {
         try {
-            // Generar ID único del paciente (por ahora timestamp simple)
+            // Generar ID único del paciente
             String patientId = "P" + System.currentTimeMillis();
 
-            // Crear objeto Patient
             Patient patient = new Patient(
                     patientId,
                     parser.getField("NAME"),
@@ -42,7 +41,7 @@ public class Protocol {
                     parser.getField("SEX"),
                     parser.getField("EMAIL"),
                     LocalDateTime.now(),
-                    parser.getField("CLINICAL_NOTES"), // puede venir vacío
+                    parser.getField("CLINICAL_NOTES"),
                     null, // checksum se genera al guardar
                     0     // tamaño se calcula al guardar
             );
