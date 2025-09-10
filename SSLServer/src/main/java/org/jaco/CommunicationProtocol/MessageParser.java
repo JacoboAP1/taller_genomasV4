@@ -17,6 +17,8 @@ public class MessageParser {
         fastaContent = "";
     }
 
+    // Lee el flujo línea por línea, captura pares clave:valor y el bloque FASTA
+    // hasta encontrar la línea END
     public void parse(BufferedReader in) throws IOException {
         String line;
         boolean fastaMode = false;
