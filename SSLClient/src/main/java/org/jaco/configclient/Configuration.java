@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+// Lee configuración (IP, puerto) de configuration.properties y se conecta
 public class Configuration {
     private static Properties props = new Properties();
     private static String ruta_propiedades = "C:/Users/arroy/OneDrive/Documentos/6to semestre/back/taller 1 genomas/taller_genomasV4/SSLClient/configuration.properties";

@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
+// Define las reglas de comunicación entre cliente y servidor
+// Contiene el comando de creación
 public class Protocol {
 
     private final PatientRepository repository = new PatientRepository();
@@ -42,8 +44,8 @@ public class Protocol {
                     parser.getField("EMAIL"),
                     LocalDateTime.now(),
                     parser.getField("CLINICAL_NOTES"),
-                    null, // checksum se genera al guardar
-                    0     // tamaño se calcula al guardar
+                    null,
+                    0
             );
 
             // Guardar paciente y archivo FASTA

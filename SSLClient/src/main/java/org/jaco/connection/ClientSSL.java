@@ -7,6 +7,7 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 
+// Maneja la conexión segura SSL al servidor
 public class ClientSSL {
     public void start() {
         try {

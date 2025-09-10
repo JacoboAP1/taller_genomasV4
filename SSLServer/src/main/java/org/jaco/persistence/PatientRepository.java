@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.security.MessageDigest;
 
+// Acceso a la base de datos de pacientes y guarda registros
 public class PatientRepository {
 
     private static final String CSV_FILE = "C:/Users/arroy/OneDrive/Documentos/6to semestre/back/taller 1 genomas/taller_genomasV4/data/PatientsMetadata.csv";

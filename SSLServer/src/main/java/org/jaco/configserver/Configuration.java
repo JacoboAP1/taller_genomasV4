@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+// Toma la configuración del servidor en configuration.properties
 public class Configuration {
     private static Properties props = new Properties();
     private static String ruta_properties = "C:/Users/arroy/OneDrive/Documentos/6to semestre/back/taller 1 genomas/taller_genomasV4/SSLServer/configuration.properties";

@@ -1,5 +1,6 @@
 package org.jaco.MessageBuilder;
 
+// Construye mensajes en el formato acordado con el servidor
 public class MessageBuilder {
     private StringBuilder builder;
 

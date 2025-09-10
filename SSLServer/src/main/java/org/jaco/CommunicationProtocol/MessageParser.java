@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+// Se encarga de interpretar los mensajes recibidos
+// Recibe un string o flujo de datos que llega por el socket
 public class MessageParser {
     private final Map<String, String> fields;
     private String fastaContent;

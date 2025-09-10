@@ -6,6 +6,8 @@ import java.security.KeyStore;
 import org.jaco.CommunicationProtocol.Protocol;
 import org.jaco.configserver.Configuration;
 
+// Abre el socket SSL, escucha y atiende clientes
+// Con la configuración de configuration.properties
 public class ServerSSL {
     public void start() {
         try {
